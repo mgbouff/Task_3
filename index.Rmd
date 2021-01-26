@@ -1,13 +1,13 @@
 ---
 title: "Marie"
-image: "marie.jpg"
+image: "marie.JPG"
 links:
   - label: LinkedIn
-    url: "https://linkedin.com/"
+    url: "https://www.linkedin.com/in/marie-bouffard-1bb36a12a/"
   - label: GitHub
-    url: "https://github.com/"
+    url: "https://github.com/mgbouff"
   - label: Email
-    url: "mailto:email@email.com"
+    url: "mailto:mariebouffard@ucsb.edu"
 output:
   postcards::jolla
 site: distill::distill_website

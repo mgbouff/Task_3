@@ -2,25 +2,25 @@
   "articles": [
     {
       "path": "about.html",
-      "title": "About this site",
-      "description": "Some additional details about the website",
+      "title": "About Me",
+      "description": "Some of my projects and interests",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-01-25T22:00:33-08:00"
+      "last_modified": "2021-02-22T15:26:27-08:00"
     },
     {
       "path": "blog.html",
       "title": "Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-01-25T22:00:34-08:00"
+      "last_modified": "2021-02-22T15:26:28-08:00"
     },
     {
       "path": "index.html",
       "title": "Marie",
       "author": [],
-      "contents": "\r\n\r\n          \r\n      \r\n      Marie\r\n      \r\n      \r\n      Home\r\n      About\r\n      Blog\r\n      ☰\r\n      \r\n      \r\n      \r\n        \r\n          \r\n            Marie\r\n          \r\n          \r\n            \r\n              I am a classically trained data scientist living in the San Francisco Bay Area. Currently I work on the Oculus team at Facebook. I love talking about baseball, true crime podcasts, and causal inference.\r\n            \r\n            \r\n              I am a classically trained data scientist living in the San Francisco Bay Area. Currently I work on the Oculus team at Facebook. I love talking about baseball, true crime podcasts, and causal inference.\r\n            \r\n          \r\n\r\n          \r\n            \r\n              \r\n                  \r\n                    \r\n                      LinkedIn\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      GitHub\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      Email\r\n                    \r\n                  \r\n                \r\n                              \r\n          \r\n\r\n          \r\n            \r\n              \r\n                                \r\n                  \r\n                    LinkedIn\r\n                  \r\n                \r\n                                \r\n                  \r\n                    GitHub\r\n                  \r\n                \r\n                                \r\n                  \r\n                    Email\r\n                  \r\n                \r\n                              \r\n            \r\n          \r\n        \r\n      \r\n    \r\n\r\n    \r\n    \r\n    ",
-      "last_modified": "2021-01-25T22:00:34-08:00"
+      "contents": "\r\n\r\n          \r\n      \r\n      Marie\r\n      \r\n      \r\n      Home\r\n      About Me\r\n      CV\r\n      Blog\r\n      ☰\r\n      \r\n      \r\n      \r\n        \r\n          \r\n            Marie\r\n          \r\n          \r\n            \r\n              I am a master’s student at Bren School of Environmental Science & Management - University of California, Santa Barbara where I am specializing in conservation planning. I am interested in addressing environmental issues through the application of geospatial research, policy, and community engagement.\r\n            \r\n            \r\n              I am a master’s student at Bren School of Environmental Science & Management - University of California, Santa Barbara where I am specializing in conservation planning. I am interested in addressing environmental issues through the application of geospatial research, policy, and community engagement.\r\n            \r\n          \r\n\r\n          \r\n            \r\n              \r\n                  \r\n                    \r\n                      LinkedIn\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      GitHub\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      Email\r\n                    \r\n                  \r\n                \r\n                              \r\n          \r\n\r\n          \r\n            \r\n              \r\n                                \r\n                  \r\n                    LinkedIn\r\n                  \r\n                \r\n                                \r\n                  \r\n                    GitHub\r\n                  \r\n                \r\n                                \r\n                  \r\n                    Email\r\n                  \r\n                \r\n                              \r\n            \r\n          \r\n        \r\n      \r\n    \r\n\r\n    \r\n    \r\n    ",
+      "last_modified": "2021-02-22T15:28:18-08:00"
     }
   ],
   "collections": ["posts/posts.json"]

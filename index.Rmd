@@ -1,6 +1,6 @@
 ---
 title: "Marie"
-image: "marie.JPG"
+image: "marie.jpg"
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/marie-bouffard-1bb36a12a/"

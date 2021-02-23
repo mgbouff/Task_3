@@ -10,7 +10,7 @@ navbar:
     - text: "About Me"
       href: about.html
     - text: "CV"
-      href: cv.html
+      href: CV.html
     - text: "Blog"
       href: blog.html  
   search: true

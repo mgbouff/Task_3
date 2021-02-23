@@ -6,21 +6,29 @@
       "description": "Some of my projects and interests",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-02-22T15:33:26-08:00"
+      "last_modified": "2021-02-22T16:45:57-08:00"
     },
     {
       "path": "blog.html",
       "title": "Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-02-22T15:33:27-08:00"
+      "last_modified": "2021-02-22T16:45:57-08:00"
+    },
+    {
+      "path": "CV.html",
+      "title": "CV",
+      "author": [],
+      "date": "`r format(Sys.time(), '%B %Y')`",
+      "contents": "\r\n    \r\n  \r\n  Marie\r\n  \r\n  \r\n  Home\r\n  About Me\r\n  CV\r\n  Blog\r\n  ☰\r\n  \r\n  \r\n    \r\n      \r\n        \r\n          \r\n          \r\n          \r\n        \r\n        \r\n      \r\n      \r\n        \r\n    Home\r\n  \r\n  \r\n    About Me\r\n  \r\n  \r\n    CV\r\n  \r\n  \r\n    Blog\r\n  \r\n        \r\n    \r\n  \r\n    \r\n    \r\n      Marie Bouffard\r\n      \r\n      \r\n\r\n      \r\n      |\r\n      \r\n      \r\n       mariebouffard@bren.edu |\r\n      \r\n      \r\n      \r\n      \r\n\r\n      \r\n      Education\r\n      \r\n      2021 Bren School of Environmental Science & Management Master of Environmental Science and Management (University of California, Santa Barbara (UCSB))\r\n      \r\n      \r\n      2017 Greater Philadelphia, Pennsylvania Bachelor of Arts in Communication (Villanova University)\r\n      \r\n      \r\n      2016 Copenhagen, Denmark Sustainability in Northern Europe Study Abroad Program (DIS)\r\n      \r\n      \r\n      Environmental Experience\r\n      \r\n      \r\n    \r\n  \r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-02-22T16:45:57-08:00"
     },
     {
       "path": "index.html",
       "title": "Marie",
       "author": [],
       "contents": "\r\n\r\n          \r\n      \r\n      Marie\r\n      \r\n      \r\n      Home\r\n      About Me\r\n      CV\r\n      Blog\r\n      ☰\r\n      \r\n      \r\n      \r\n        \r\n          \r\n            Marie\r\n          \r\n          \r\n            \r\n              I am a master’s student at Bren School of Environmental Science & Management - University of California, Santa Barbara where I am specializing in conservation planning. I am interested in addressing environmental issues through the application of geospatial research, policy, and community engagement.\r\n            \r\n            \r\n              I am a master’s student at Bren School of Environmental Science & Management - University of California, Santa Barbara where I am specializing in conservation planning. I am interested in addressing environmental issues through the application of geospatial research, policy, and community engagement.\r\n            \r\n          \r\n\r\n          \r\n            \r\n              \r\n                  \r\n                    \r\n                      LinkedIn\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      GitHub\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      Email\r\n                    \r\n                  \r\n                \r\n                              \r\n          \r\n\r\n          \r\n            \r\n              \r\n                                \r\n                  \r\n                    LinkedIn\r\n                  \r\n                \r\n                                \r\n                  \r\n                    GitHub\r\n                  \r\n                \r\n                                \r\n                  \r\n                    Email\r\n                  \r\n                \r\n                              \r\n            \r\n          \r\n        \r\n      \r\n    \r\n\r\n    \r\n    \r\n    ",
-      "last_modified": "2021-02-22T15:33:27-08:00"
+      "last_modified": "2021-02-22T16:12:58-08:00"
     }
   ],
   "collections": ["posts/posts.json"]

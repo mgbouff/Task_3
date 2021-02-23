@@ -5,7 +5,7 @@
     "description": "A short description of the post.",
     "author": [
       {
-        "name": "Unknown",
+        "name": "Marie",
         "url": {}
       }
     ],
@@ -13,7 +13,7 @@
     "categories": [],
     "contents": "\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-01-25T21:33:44-08:00",
+    "last_modified": "2021-02-22T18:34:20-08:00",
     "input_file": {}
   }
 ]

@@ -1,5 +1,5 @@
 name: "."
-title: "Marie"
+title: "Marie Bouffard"
 description: |
   marie
 output_dir: "docs"
@@ -7,7 +7,7 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "About Me"
+    - text: "Master's Project"
       href: about.html
     - text: "CV"
       href: CV.html

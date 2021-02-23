@@ -34,14 +34,26 @@ library(vitae)
 library(tibble)
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where,
-  "Informal studies", "1889-91", "Flying University", "Warsaw, Poland",
-  "Master of Physics", "1893", "Sorbonne Université", "Paris, France",
-  "Master of Mathematics", "1894", "Sorbonne Université", "Paris, France"
+  "Master of Environmental Science and Management", "2021", "University of California, Santa Barbara (UCSB)", "Bren School of Environmental Science & Management",
+  "Bachelor of Arts in Communication", "2017", "Villanova University", "Greater Philadelphia, Pennsylvania",
+  "Sustainability in Northern Europe Study Abroad Program", "2016", "DIS", "Copenhagen, Denmark"
 ) %>% 
   detailed_entries(Degree, Year, Institution, Where)
 ```
 
 ## Nobel Prizes
+
+```{r consulting}
+tribble(
+  ~ role, ~ company, ~ loc, ~ dates, ~ details,
+  "Data scientist", "Nectric", "Clayton, Australia", "Jan. 2019 - Present", "A variety of consulting projects with substantial spatio-temporal modelling tasks.",
+  "Research assistant", "Monash University", "Clayton, Australia", "Jan. 2016 - Present", "Involved in many internal and external data projects of varying size and complexity.",
+  "Research assistant", "Monash University", "Clayton, Australia", "Jan. 2016 - Present", "Projects typically feature large scale time series modelling or analysis, cross-sectional modelling and creating tools for improving workflows.",
+  "Research assistant", "Monash University", "Clayton, Australia", "Jan. 2016 - Present", "Consulting project clients include: Huawei, Monash University, R Consortium, NSW Chief Scientist office, DiabetesLab and Tennis Australia.",
+  "Data mining intern", "iSelect", "Cheltenham, Australia", "Feb. 2015 - Mar. 2015", "Improved business reporting with interactive visualisations, and model-based anomaly detection.",
+) %>% 
+  detailed_entries(role, dates, company, loc, details)
+```
 
 ```{r}
 tribble(

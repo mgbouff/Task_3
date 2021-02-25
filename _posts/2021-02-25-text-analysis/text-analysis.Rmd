@@ -1,0 +1,232 @@
+---
+title: "Text Analysis"
+description: |
+  Text analysis of Good Omens by Neil Gaiman and Terry Pratchett.
+author:
+  - name: Marie
+    url: {}
+date: 02-25-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    code_folding: hide
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+# Attach Packages
+library(tidyverse)
+library(here)
+library(tidytext)
+library(textdata)
+library(pdftools)
+library(ggwordcloud)
+library(png)
+library(ggimage)
+library(patchwork)
+
+```
+<center>
+# Armageddon Only Happens Once: Good Omens Text Analysis
+
+<br>
+
+**Synopsis:** The world is going to end next Saturday, just before dinner, but it turns out there are a few problems — the Antichrist has been misplaced, the Four Horseman of the Apocalypse ride motorcycles and the representatives from heaven and hell decide that they like the human race. (Photo and synopsis credit: [NPR](https://www.npr.org/books/titles/392587202/good-omens-the-nice-and-accurate-prophecies-of-agnes-nutter-witch))
+
+</center>
+
+<br>
+
+## Word Counts Visualizations
+
+**Figure 1.** Word Count Plot
+
+<br>
+
+```{r, cache = TRUE}
+
+#---------------------------------------
+# Text Wrangling
+#---------------------------------------
+
+# Read in Good Omens pdf
+omens_text <- pdf_text(here("_posts/2021-02-25-text-analysis","Media","GoodOmens.pdf"))
+
+# Tidy
+omens_tidy <- data.frame(omens_text) %>% 
+  mutate(text_full = str_split(omens_text, pattern = "\\n")) %>% 
+  unnest(text_full) %>% 
+  mutate(text_full = str_trim(text_full)) %>% 
+  slice(-(63:109)) %>% # Skip character descriptions
+ mutate(chapter = case_when(
+    str_detect(text_full, "^In the beginning$|^Eleven years ago$|^Wednesday$|^Thursday$|^Friday$|^Saturday$|^Sunday$") ~ text_full,
+    TRUE ~ NA_character_
+  )) %>% 
+  fill(chapter) %>% 
+  mutate(chapter = fct_relevel(chapter, 
+            "In the beginning", "Eleven years ago", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")) %>%  # Set chapter order
+  unnest_tokens(word, text_full) %>% # Tokenize
+  mutate(word = str_replace(word, "[0-9-]+", NA_character_)) %>% # remove rogue page numbers
+  select(-omens_text) %>% 
+  drop_na() %>% 
+  anti_join(stop_words) # Remove stop-words
+
+# Get word counts of non stop-words
+nonstop_counts <- omens_tidy %>% 
+  count(chapter, word)
+
+#---------------------------------------
+# Visualize top word counts by chapter
+#---------------------------------------
+
+# Find top 5 words by chapter
+top_5_words <- nonstop_counts %>% 
+  group_by(chapter) %>% 
+  arrange(-n) %>% 
+  slice(1:5)
+
+# Visualize top 5 words per chapter
+
+omens_palette <- c("#A6D3DD", "#FDF3B0", "#F0B140", "#B4B4B4", "#C6333B", "#671D21", "#070707")
+
+ggplot(data = top_5_words, aes(x = word, y = n)) +
+  geom_col(aes(fill = chapter), show.legend = FALSE) +
+  scale_fill_manual(values = omens_palette) +
+  facet_wrap(~chapter, scales = "free") +
+  theme_minimal() +
+  coord_flip() +
+  labs(title = "Five most common words per chapter in Good Omens",
+       x = "Word",
+       y = "Number of occurences") +
+    theme(plot.title = element_text(color="#C6333B", 
+                                  size=16,
+                                  face = "bold",
+                                  hjust = 0.5))
+
+```
+
+**Figure 2.** Word Cloud Plot
+
+<br>
+
+```{r}
+
+#---------------------------------------
+# Visualize top 100 words in book
+#---------------------------------------
+
+omens_top100 <- nonstop_counts %>% 
+  arrange(-n) %>% 
+  slice(1:100) %>% 
+  mutate(angle = 90 * sample(c(0, 1), n(), replace = TRUE, prob = c(60, 40)))
+
+omens_cloud <- ggplot(data = omens_top100, aes(label = word)) +
+  geom_text_wordcloud(aes(color = n, 
+                          size = n,
+                          angle = angle),
+                          shape = "squares") +
+  scale_size_area(max_size = 10) +
+  scale_color_gradientn(colors = c(low = "#A6D3DD", middle = "#F0B140", high = "#C6333B")) +
+  labs(title = "Top 100 Words in Good Omens") +
+  theme(plot.title = element_text(color="#C6333B", 
+                                  size = 16,
+                                  face = "bold",
+                                  hjust = 0.5))
+
+# Add background
+img = here("_posts/2021-02-25-text-analysis","Media","angel-demon-buds.png")
+
+ggbackground(omens_cloud, img)
+
+
+```
+
+## Sentiment Analysis
+
+**Figure 3.** Positive vs. Negative Sentiment Analysis
+
+<br>
+
+```{r}
+
+#---------------------------------------
+# Sentiment analysis with afinn
+#---------------------------------------
+
+# Join afinn lexicon
+omens_afinn <- omens_tidy %>% 
+  inner_join(get_sentiments("afinn"))
+
+# Calculate mean score per chapter
+afinn_means <- omens_afinn %>% 
+  group_by(chapter) %>% 
+  summarize(mean_afinn = mean(value))
+
+# Visualize positive vs. negative sentiment per chapter
+ggplot(data = afinn_means, 
+       aes(x = fct_rev(as.factor(chapter)), 
+           y = mean_afinn)) +
+  geom_col(aes(fill = chapter), show.legend = FALSE) +
+  scale_fill_manual(values = omens_palette) +
+  theme_minimal() +
+  labs(
+    title = "Positive and negative sentiments by chapter\n of of Good Omens",
+    x = "Chapter",
+    y = "Average Sentiment"
+  ) +
+  theme(plot.title = element_text(color="#C6333B", 
+                                  size = 16,
+                                  face = "bold",
+                                  hjust = 0.5)) +
+  coord_flip()
+
+```
+
+**Figure 4.** Sentiment Bins Plot
+
+<br>
+
+```{r}
+
+#---------------------------------------
+# Sentiment analysis with nrc
+#---------------------------------------
+
+# join nrc lexicon
+omens_nrc <- omens_tidy %>% 
+  inner_join(get_sentiments("nrc"))
+
+# Get counts
+omens_nrc_counts <- omens_nrc %>% 
+  count(chapter, sentiment)
+
+# Visualize sentiment bins by chapter
+ggplot(data = omens_nrc_counts, aes(x = sentiment, y = n)) +
+  geom_col(aes(fill = chapter), show.legend = FALSE) +
+  scale_fill_manual(values = omens_palette) +
+  theme_minimal() +
+  labs(
+    title = "Top sentiment bins by chapter of Good Omens",
+    x = "Chapter",
+    y = "Number of occurences"
+  ) +
+  theme(plot.title = element_text(color="#C6333B", 
+                                  size = 16,
+                                  face = "bold",
+                                  hjust = 0.5)) +
+  facet_wrap(~chapter) +
+  coord_flip()
+
+```
+
+
+***
+
+**References:** <br>
+Gaiman, N., & Pratchett, T. (1990). Good Omens: The Nice and Accurate Prophecies of Agnes Nutter, Witch. London: Berkley Books.
+
+Mohammad, S. & Turney, P. (3013). Crowdsourcing a Word-Emotion Association Lexicon. Computational Intelligence, 29 (3), 436-465.
+
+Nielsen, F.A. (2011). A new ANEW: Evaluation of a word list for sentiment analysis in microblogs. Proceedings of the ESWC2011 Workshop on 'Making Sense of Microposts': Big things come in small packages 718 in CEUR Workshop Proceedings 93-98.

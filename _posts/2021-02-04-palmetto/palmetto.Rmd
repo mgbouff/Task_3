@@ -1,0 +1,192 @@
+---
+title: "Binary Logistic Regression"
+description: |
+  Using binary regression to test the feasibility of using plant charecteristics to classify palmetto species.
+author:
+  - name: Marie
+date: 01-25-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    code_folding: hide
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+# Attach packages
+library(tidyverse)
+library(here)
+library(janitor)
+library(GGally)
+library(broom)
+library(jtools)
+library(patchwork)
+library(kableExtra)
+
+# Read in Florida palmetto data and convert species to factor
+palmetto <- read_csv(here("_posts", "2021-02-04-palmetto", "Data", "palmetto.csv")) %>% 
+  select(species, height:green_lvs) %>% 
+  mutate(species = case_when(species == "2" ~ "Sabal etonia",
+                             species == "1" ~ "Serenoa repens")) %>% 
+    mutate(species = as.factor(species))
+
+```
+
+### Explore differences in height, canopy length, canopy width, and number of green leaves between *Serenoa repens* and *Sabal etonia*
+```{r}
+
+#---------------------------------------
+# Data Exploration
+#---------------------------------------
+
+# Pairs Plot
+palmetto %>% 
+  ggpairs(aes(color = species)) +
+  labs(title = "Palmetto Pair Plot") +
+  scale_fill_manual(values=c("seagreen3", "seagreen4")) +
+  scale_color_manual(values=c("seagreen3", "seagreen4")) +
+  theme_light()
+
+```
+
+**Figure 1.** This pairs plot shows correlations and relationships between the variables we are considering. We can see how the species differ in height, canopy length, canopy width, and number of green leaves in the boxplots in the first row and histograms in the first column. We can also see correlations between variables such as plant height, canopy length, and canopy width appear to all be positively correlated with each other. The number of green leaves also appears to increase with height, length, and width, and we can also see a difference between groupings of the two species.
+
+
+```{r}
+# plant height
+height_plot <- ggplot(data = palmetto, aes(x = height)) +
+  geom_histogram(aes(fill = species)) +
+  scale_fill_manual(values=c("seagreen3", "seagreen4")) +
+  labs(title = "Palmetto plant height by species",
+       x = "Plant Height (cm)",
+       y = "Count") +
+  theme_minimal()
+
+# canopy length
+length_plot <- ggplot(data = palmetto, aes(x = length)) +
+  geom_histogram(aes(fill = species)) +
+  scale_fill_manual(values=c("seagreen3", "seagreen4")) +
+  labs(title = "Canopy length by palmetto species",
+       x = "Canopy Length (cm)",
+       y = "Count") +
+  theme_minimal()
+
+# canopy width
+width_plot <- ggplot(data = palmetto, aes(x = width)) +
+  geom_histogram(aes(fill = species)) +
+  scale_fill_manual(values=c("seagreen3", "seagreen4")) +
+  labs(title = "Canopy width by palmetto species",
+       x = "Canopy Width (cm)",
+       y = "Count") +
+  theme_minimal()
+
+# green leaves
+leaves_plot <- ggplot(data = palmetto, aes(x = green_lvs)) +
+  geom_histogram(aes(fill = species)) +
+  scale_fill_manual(values=c("seagreen3", "seagreen4")) +
+  labs(title = "Number of green leaves by palmetto species",
+       x = "Numer of Green Leaves",
+       y = "Count") +
+  theme_minimal()
+
+variable_patchwork <- (length_plot|width_plot)/(height_plot|leaves_plot)
+variable_patchwork
+
+```
+
+**Figure 2.** Taking a closer look at each of the variables in histograms by species, we can see that there are more samples of Serenoa repens overall but that the two species have fairly normal and similar distributions expect for the number of green leaves variable, in which we can see that while the species have similar centers, *Serenoa repens* is skewed to the right in its distribution.
+
+
+### Binary Regression 
+Binary regression using plant height, canopy length, canopy width, and number of green leaves as predictor variables to test how they relate to the probability of the individual being *Serenoa repens* or *Sabal etonia*.
+
+<br>
+
+```{r}
+#---------------------------------------
+# Binary regression
+#---------------------------------------
+
+#  Perform binary regression
+palmetto_blr <- glm(species ~ height + length + width + green_lvs, 
+                            data = palmetto, 
+                            family = "binomial")
+
+# View results
+# palmetto_blr
+# 
+# summary(palmetto_blr)
+
+# Create tidy table
+palmetto_blr_tidy <- broom::tidy(palmetto_blr)
+
+palmetto_blr_tidy
+
+# Figure out how to keep kable from cutting off the p-value to 0 Grrrrr
+# kable(palmetto_blr_tidy) %>% 
+#   kable_styling()
+
+```
+
+<br>
+
+The results of the binary regression indicate that we expect the log odds of the plant being *Serenoa repens* instead of *Sabal etonia* to decrease by `r round(palmetto_blr_tidy[2,2], 3)` for every cm gained in height. We'd expect the log odds of the plant being *Serenoa repens* to decrease by `r round(palmetto_blr_tidy[5,2], 3)` for every additional green leaf. From these results, we would also expect the log odds of the plant being *Serenoa repens* to increase by `r round(palmetto_blr_tidy[3,2], 3)` for every cm increase in canopy length and by log odds `r round(palmetto_blr_tidy[4,2], 3)` for every cm increase in canopy width.
+
+### Plant Classification
+
+**Table 1.** An evaluation of how accurate the model was at classifying the plants in the dataset as *Serenoa repens* or  *Sabal etonia* based on the four variables and using a 50% cutoff. Overall, the model performed well. Of the 6,155 observations that were classified as *Sabal etonia*, 5701 or 92.6% were *Sabal etonia*. Of the 6,112 observations that were classified as *Serenoa repens*, 90.8% were correct.
+
+<br>
+
+```{r}
+
+# Augment with fitted column showing probabilities of being a serenoa repens for each observation
+palmetto_blr_fitted <- palmetto_blr %>% 
+  augment(type.predict = "response")
+
+palmetto_classify <- palmetto_blr_fitted %>% 
+  select(species:.fitted) %>% 
+  mutate(classified = case_when(.fitted < 0.5 ~ "Sabal etonia",
+                                .fitted > 0.5 ~ "Serenoa repens"))
+
+# Sabal etonia accuracy
+accuracy_sabal <- palmetto_classify %>% 
+  select(species, classified) %>% 
+  filter(species == "Sabal etonia") %>% 
+  mutate(accuracy = case_when(classified == "Sabal etonia" ~ "Correct",
+                              classified == "Serenoa repens" ~ "Incorrect"))%>% 
+  group_by(accuracy) %>% 
+  count(accuracy) %>% 
+  pivot_wider(names_from = accuracy, values_from = n) %>% 
+  mutate(Species = "Sabal etonia") %>% 
+  relocate(Species) %>% 
+  adorn_percentages(denominator = "row") %>% 
+  adorn_pct_formatting(digits = 1) %>%
+  adorn_ns(position = "front")
+
+# Serenoa repens accuracy
+accuracy_serenoa <- palmetto_classify %>% 
+  select(species, classified) %>% 
+  filter(species == "Serenoa repens") %>% 
+  mutate(accuracy = case_when(classified == "Serenoa repens" ~ "Correct",
+                              classified == "Sabal etonia" ~ "Incorrect")) %>% 
+  group_by(accuracy) %>% 
+  count(accuracy) %>% 
+  pivot_wider(names_from = accuracy, values_from = n) %>% 
+  mutate(Species = "Serenoa repens") %>% 
+  relocate(Species) %>% 
+  adorn_percentages(denominator = "row") %>% 
+  adorn_pct_formatting(digits = 1) %>%
+  adorn_ns(position = "front")
+
+# Join back together
+palmetto_accuracy <- bind_rows(accuracy_sabal, accuracy_serenoa)
+
+kable(palmetto_accuracy) %>% 
+  kable_styling(bootstrap_options = c("hover", "condensed", "responsive"))
+
+
+```
+

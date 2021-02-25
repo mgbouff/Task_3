@@ -86,9 +86,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>welcome</title>
+  <title>Binary Logistic Regression</title>
 
-  <meta property="description" itemprop="description" content="A short description of the post."/>
+  <meta property="description" itemprop="description" content="Using binary regression to test the feasibility of using plant charecteristics to classify palmetto species."/>
 
 
   <!--  https://schema.org/Article -->
@@ -97,26 +97,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="article:author" content="Marie"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="welcome"/>
+  <meta property="og:title" content="Binary Logistic Regression"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="A short description of the post."/>
+  <meta property="og:description" content="Using binary regression to test the feasibility of using plant charecteristics to classify palmetto species."/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="welcome"/>
-  <meta property="twitter:description" content="A short description of the post."/>
+  <meta property="twitter:title" content="Binary Logistic Regression"/>
+  <meta property="twitter:description" content="Using binary regression to test the feasibility of using plant charecteristics to classify palmetto species."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["welcome"]},{"type":"character","attributes":{},"value":["A short description of the post.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Marie"]}]}]},{"type":"character","attributes":{},"value":["01-25-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Binary Logistic Regression"]},{"type":"character","attributes":{},"value":["Using binary regression to test the feasibility of using plant charecteristics to classify palmetto species.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Marie"]}]}]},{"type":"character","attributes":{},"value":["01-25-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["hide"]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["welcome_files/anchor-4.2.2/anchor.min.js","welcome_files/bowser-1.9.3/bowser.min.js","welcome_files/distill-2.2.21/template.v2.js","welcome_files/jquery-1.11.3/jquery.min.js","welcome_files/popper-2.6.0/popper.min.js","welcome_files/tippy-6.2.7/tippy-bundle.umd.min.js","welcome_files/tippy-6.2.7/tippy-light-border.css","welcome_files/tippy-6.2.7/tippy.css","welcome_files/tippy-6.2.7/tippy.umd.min.js","welcome_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["Data/palmetto.csv","palmetto_files/anchor-4.2.2/anchor.min.js","palmetto_files/bowser-1.9.3/bowser.min.js","palmetto_files/distill-2.2.21/template.v2.js","palmetto_files/figure-html5/unnamed-chunk-1-1.png","palmetto_files/figure-html5/unnamed-chunk-2-1.png","palmetto_files/header-attrs-2.7/header-attrs.js","palmetto_files/jquery-1.11.3/jquery.min.js","palmetto_files/kePrint-0.0.1/kePrint.js","palmetto_files/lightable-0.0.1/lightable.css","palmetto_files/popper-2.6.0/popper.min.js","palmetto_files/tippy-6.2.7/tippy-bundle.umd.min.js","palmetto_files/tippy-6.2.7/tippy-light-border.css","palmetto_files/tippy-6.2.7/tippy.css","palmetto_files/tippy-6.2.7/tippy.umd.min.js","palmetto_files/webcomponents-2.0.0/webcomponents.js","welcome_files/anchor-4.2.2/anchor.min.js","welcome_files/bowser-1.9.3/bowser.min.js","welcome_files/distill-2.2.21/template.v2.js","welcome_files/header-attrs-2.7/header-attrs.js","welcome_files/jquery-1.11.3/jquery.min.js","welcome_files/popper-2.6.0/popper.min.js","welcome_files/tippy-6.2.7/tippy-bundle.umd.min.js","welcome_files/tippy-6.2.7/tippy-light-border.css","welcome_files/tippy-6.2.7/tippy.css","welcome_files/tippy-6.2.7/tippy.umd.min.js","welcome_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1434,16 +1434,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="welcome_files/header-attrs-2.7/header-attrs.js"></script>
-  <script src="welcome_files/jquery-1.11.3/jquery.min.js"></script>
-  <script src="welcome_files/popper-2.6.0/popper.min.js"></script>
-  <link href="welcome_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="welcome_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="welcome_files/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="welcome_files/anchor-4.2.2/anchor.min.js"></script>
-  <script src="welcome_files/bowser-1.9.3/bowser.min.js"></script>
-  <script src="welcome_files/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="welcome_files/distill-2.2.21/template.v2.js"></script>
+  <script src="palmetto_files/header-attrs-2.7/header-attrs.js"></script>
+  <script src="palmetto_files/kePrint-0.0.1/kePrint.js"></script>
+  <link href="palmetto_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+  <script src="palmetto_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="palmetto_files/popper-2.6.0/popper.min.js"></script>
+  <link href="palmetto_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="palmetto_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="palmetto_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="palmetto_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="palmetto_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="palmetto_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="palmetto_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
@@ -1455,7 +1457,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"welcome","description":"A short description of the post.","authors":[{"author":"Marie","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-01-25T00:00:00.000-08:00","citationText":"Marie, 2021"}
+{"title":"Binary Logistic Regression","description":"Using binary regression to test the feasibility of using plant charecteristics to classify palmetto species.","authors":[{"author":"Marie","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-01-25T00:00:00.000-08:00","citationText":"Marie, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1465,10 +1467,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>welcome</h1>
+<h1>Binary Logistic Regression</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>A short description of the post.</p></p>
+<p><p>Using binary regression to test the feasibility of using plant charecteristics to classify palmetto species.</p></p>
 </div>
 
 <div class="d-byline">
@@ -1478,9 +1480,229 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<p>Distill is a publication format for scientific and technical writing, native to the web.</p>
-<p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h3 id="explore-differences-in-height-canopy-length-canopy-width-and-number-of-green-leaves-between-serenoa-repens-and-sabal-etonia">Explore differences in height, canopy length, canopy width, and number of green leaves between <em>Serenoa repens</em> and <em>Sabal etonia</em></h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+hide
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#---------------------------------------</span>
+<span class='co'># Data Exploration</span>
+<span class='co'>#---------------------------------------</span>
+
+<span class='co'># Pairs Plot</span>
+<span class='va'>palmetto</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://ggobi.github.io/ggally/reference/ggpairs.html'>ggpairs</a></span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>species</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Palmetto Pair Plot"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_manual</span><span class='op'>(</span>values<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"seagreen3"</span>, <span class='st'>"seagreen4"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_color_manual</span><span class='op'>(</span>values<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"seagreen3"</span>, <span class='st'>"seagreen4"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_light</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="palmetto_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
+</div>
+<p><strong>Figure 1.</strong> This pairs plot shows correlations and relationships between the variables we are considering. We can see how the species differ in height, canopy length, canopy width, and number of green leaves in the boxplots in the first row and histograms in the first column. We can also see correlations between variables such as plant height, canopy length, and canopy width appear to all be positively correlated with each other. The number of green leaves also appears to increase with height, length, and width, and we can also see a difference between groupings of the two species.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+hide
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># plant height</span>
+<span class='va'>height_plot</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>palmetto</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>height</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_histogram</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>species</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_manual</span><span class='op'>(</span>values<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"seagreen3"</span>, <span class='st'>"seagreen4"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Palmetto plant height by species"</span>,
+       x <span class='op'>=</span> <span class='st'>"Plant Height (cm)"</span>,
+       y <span class='op'>=</span> <span class='st'>"Count"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># canopy length</span>
+<span class='va'>length_plot</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>palmetto</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>length</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_histogram</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>species</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_manual</span><span class='op'>(</span>values<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"seagreen3"</span>, <span class='st'>"seagreen4"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Canopy length by palmetto species"</span>,
+       x <span class='op'>=</span> <span class='st'>"Canopy Length (cm)"</span>,
+       y <span class='op'>=</span> <span class='st'>"Count"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># canopy width</span>
+<span class='va'>width_plot</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>palmetto</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>width</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_histogram</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>species</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_manual</span><span class='op'>(</span>values<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"seagreen3"</span>, <span class='st'>"seagreen4"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Canopy width by palmetto species"</span>,
+       x <span class='op'>=</span> <span class='st'>"Canopy Width (cm)"</span>,
+       y <span class='op'>=</span> <span class='st'>"Count"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># green leaves</span>
+<span class='va'>leaves_plot</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>palmetto</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>green_lvs</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_histogram</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>species</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_manual</span><span class='op'>(</span>values<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"seagreen3"</span>, <span class='st'>"seagreen4"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Number of green leaves by palmetto species"</span>,
+       x <span class='op'>=</span> <span class='st'>"Numer of Green Leaves"</span>,
+       y <span class='op'>=</span> <span class='st'>"Count"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='va'>variable_patchwork</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>length_plot</span><span class='op'>|</span><span class='va'>width_plot</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='va'>height_plot</span><span class='op'>|</span><span class='va'>leaves_plot</span><span class='op'>)</span>
+<span class='va'>variable_patchwork</span>
+</code></pre>
+</div>
+</details>
+<p><img src="palmetto_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
+</div>
+<p><strong>Figure 2.</strong> Taking a closer look at each of the variables in histograms by species, we can see that there are more samples of Serenoa repens overall but that the two species have fairly normal and similar distributions expect for the number of green leaves variable, in which we can see that while the species have similar centers, <em>Serenoa repens</em> is skewed to the right in its distribution.</p>
+<h3 id="binary-regression">Binary Regression</h3>
+<p>Binary regression using plant height, canopy length, canopy width, and number of green leaves as predictor variables to test how they relate to the probability of the individual being <em>Serenoa repens</em> or <em>Sabal etonia</em>.</p>
+<p><br></p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+hide
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#---------------------------------------</span>
+<span class='co'># Binary regression</span>
+<span class='co'>#---------------------------------------</span>
+
+<span class='co'>#  Perform binary regression</span>
+<span class='va'>palmetto_blr</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span><span class='va'>species</span> <span class='op'>~</span> <span class='va'>height</span> <span class='op'>+</span> <span class='va'>length</span> <span class='op'>+</span> <span class='va'>width</span> <span class='op'>+</span> <span class='va'>green_lvs</span>, 
+                            data <span class='op'>=</span> <span class='va'>palmetto</span>, 
+                            family <span class='op'>=</span> <span class='st'>"binomial"</span><span class='op'>)</span>
+
+<span class='co'># View results</span>
+<span class='co'># palmetto_blr</span>
+<span class='co'># </span>
+<span class='co'># summary(palmetto_blr)</span>
+
+<span class='co'># Create tidy table</span>
+<span class='va'>palmetto_blr_tidy</span> <span class='op'>&lt;-</span> <span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>palmetto_blr</span><span class='op'>)</span>
+
+<span class='va'>palmetto_blr_tidy</span>
+</code></pre>
+</div>
+</details>
+<pre><code># A tibble: 5 x 5
+  term        estimate std.error statistic   p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)  -3.23     0.142       -22.7 3.42e-114
+2 height        0.0292   0.00231      12.7 8.69e- 37
+3 length       -0.0458   0.00187     -24.6 3.73e-133
+4 width        -0.0394   0.00210     -18.8 1.05e- 78
+5 green_lvs     1.91     0.0389       49.1 0.       </code></pre>
+<details>
+<summary>
+hide
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Figure out how to keep kable from cutting off the p-value to 0 Grrrrr</span>
+<span class='co'># kable(palmetto_blr_tidy) %&gt;% </span>
+<span class='co'>#   kable_styling()</span>
+</code></pre>
+</div>
+</details>
+</div>
+<p><br></p>
+<p>The results of the binary regression indicate that we expect the log odds of the plant being <em>Serenoa repens</em> instead of <em>Sabal etonia</em> to decrease by 0.029 for every cm gained in height. We’d expect the log odds of the plant being <em>Serenoa repens</em> to decrease by 1.908 for every additional green leaf. From these results, we would also expect the log odds of the plant being <em>Serenoa repens</em> to increase by -0.046 for every cm increase in canopy length and by log odds -0.039 for every cm increase in canopy width.</p>
+<h3 id="plant-classification">Plant Classification</h3>
+<p><strong>Table 1.</strong> An evaluation of how accurate the model was at classifying the plants in the dataset as <em>Serenoa repens</em> or <em>Sabal etonia</em> based on the four variables and using a 50% cutoff. Overall, the model performed well. Of the 6,155 observations that were classified as <em>Sabal etonia</em>, 5701 or 92.6% were <em>Sabal etonia</em>. Of the 6,112 observations that were classified as <em>Serenoa repens</em>, 90.8% were correct.</p>
+<p><br></p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+hide
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Augment with fitted column showing probabilities of being a serenoa repens for each observation</span>
+<span class='va'>palmetto_blr_fitted</span> <span class='op'>&lt;-</span> <span class='va'>palmetto_blr</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://generics.r-lib.org/reference/augment.html'>augment</a></span><span class='op'>(</span>type.predict <span class='op'>=</span> <span class='st'>"response"</span><span class='op'>)</span>
+
+<span class='va'>palmetto_classify</span> <span class='op'>&lt;-</span> <span class='va'>palmetto_blr_fitted</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>species</span><span class='op'>:</span><span class='va'>.fitted</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>classified <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span><span class='va'>.fitted</span> <span class='op'>&lt;</span> <span class='fl'>0.5</span> <span class='op'>~</span> <span class='st'>"Sabal etonia"</span>,
+                                <span class='va'>.fitted</span> <span class='op'>&gt;</span> <span class='fl'>0.5</span> <span class='op'>~</span> <span class='st'>"Serenoa repens"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'># Sabal etonia accuracy</span>
+<span class='va'>accuracy_sabal</span> <span class='op'>&lt;-</span> <span class='va'>palmetto_classify</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>species</span>, <span class='va'>classified</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>species</span> <span class='op'>==</span> <span class='st'>"Sabal etonia"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>accuracy <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span><span class='va'>classified</span> <span class='op'>==</span> <span class='st'>"Sabal etonia"</span> <span class='op'>~</span> <span class='st'>"Correct"</span>,
+                              <span class='va'>classified</span> <span class='op'>==</span> <span class='st'>"Serenoa repens"</span> <span class='op'>~</span> <span class='st'>"Incorrect"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>accuracy</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>count</span><span class='op'>(</span><span class='va'>accuracy</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>accuracy</span>, values_from <span class='op'>=</span> <span class='va'>n</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>Species <span class='op'>=</span> <span class='st'>"Sabal etonia"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>relocate</span><span class='op'>(</span><span class='va'>Species</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/janitor/man/adorn_percentages.html'>adorn_percentages</a></span><span class='op'>(</span>denominator <span class='op'>=</span> <span class='st'>"row"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html'>adorn_pct_formatting</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/janitor/man/adorn_ns.html'>adorn_ns</a></span><span class='op'>(</span>position <span class='op'>=</span> <span class='st'>"front"</span><span class='op'>)</span>
+
+<span class='co'># Serenoa repens accuracy</span>
+<span class='va'>accuracy_serenoa</span> <span class='op'>&lt;-</span> <span class='va'>palmetto_classify</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>species</span>, <span class='va'>classified</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>species</span> <span class='op'>==</span> <span class='st'>"Serenoa repens"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>accuracy <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span><span class='va'>classified</span> <span class='op'>==</span> <span class='st'>"Serenoa repens"</span> <span class='op'>~</span> <span class='st'>"Correct"</span>,
+                              <span class='va'>classified</span> <span class='op'>==</span> <span class='st'>"Sabal etonia"</span> <span class='op'>~</span> <span class='st'>"Incorrect"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>accuracy</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>count</span><span class='op'>(</span><span class='va'>accuracy</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>accuracy</span>, values_from <span class='op'>=</span> <span class='va'>n</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>Species <span class='op'>=</span> <span class='st'>"Serenoa repens"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>relocate</span><span class='op'>(</span><span class='va'>Species</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/janitor/man/adorn_percentages.html'>adorn_percentages</a></span><span class='op'>(</span>denominator <span class='op'>=</span> <span class='st'>"row"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html'>adorn_pct_formatting</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/janitor/man/adorn_ns.html'>adorn_ns</a></span><span class='op'>(</span>position <span class='op'>=</span> <span class='st'>"front"</span><span class='op'>)</span>
+
+<span class='co'># Join back together</span>
+<span class='va'>palmetto_accuracy</span> <span class='op'>&lt;-</span> <span class='fu'>bind_rows</span><span class='op'>(</span><span class='va'>accuracy_sabal</span>, <span class='va'>accuracy_serenoa</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>palmetto_accuracy</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/kableExtra/man/kable_styling.html'>kable_styling</a></span><span class='op'>(</span>bootstrap_options <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"hover"</span>, <span class='st'>"condensed"</span>, <span class='st'>"responsive"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<table class="table table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:left;">
+Correct
+</th>
+<th style="text-align:left;">
+Incorrect
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Sabal etonia
+</td>
+<td style="text-align:left;">
+5701 (92.6%)
+</td>
+<td style="text-align:left;">
+454 (7.4%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Serenoa repens
+</td>
+<td style="text-align:left;">
+5548 (90.8%)
+</td>
+<td style="text-align:left;">
+564 (9.2%)
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

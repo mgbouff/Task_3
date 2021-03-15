@@ -1,5 +1,10 @@
 ---
 title: "Master's Group Project"
+description: |
+  As part of the Master of Environmental Science and Management (MESM) Program, all students undertake a thesis-equivalent master's group research project. These are year-long projects in which small groups of students conduct focused, interdisciplinary research on the scientific, management, and policy dimensions of a specific environmental issue. 
+  
+  I wrote and proposed this project to support the work of Osa Conservation's work in the Talamanca-Osa region of Costa Rica and I served as project manager while completing this project with four other group members, Lauren Manzo, Cameryn Brock, Julia Dagum, and Bret Folger.
+  
 ---
 
 ```{r setup, include=FALSE}

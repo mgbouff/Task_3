@@ -2,3 +2,5 @@
 title: "Projects"  # any name you want here
 listing: posts # do this exactly
 ---
+
+This page contains some examples of data analysis projects that I completed for my Advanced Data Analysis (ESM 244) class at Bren in 2021. Cick on the "Code" button in each post to view the code I wrote for that section.

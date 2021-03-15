@@ -1,0 +1,89 @@
+---
+title: "Spatial Data Visualization"
+description: |
+  A short description of the post.
+author:
+  - name: Marie
+    url: {}
+date: 03-01-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    code_folding: hide
+---
+
+## California Oil Spills
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+
+# Attach packages
+library(tidyverse)
+library(here)
+library(janitor)
+library(sf)
+library(tmap)
+
+# Read in CA Counties data
+ca_counties <- read_sf(here("_posts", "2021-03-14-spatial-analysis", "ca_counties"), layer = "CA_Counties_TIGER2016") %>% 
+  clean_names() %>% 
+  select("name")
+
+# Read in oil spill data
+oil_spills <- read_sf(here("_posts", "2021-03-14-spatial-analysis", "oil_spill_shapefile"), layer = "Oil_Spill_Incident_Tracking") %>% 
+  clean_names() %>% 
+  relocate("dateofinci")
+
+```
+
+### **Figure 1.** Interactive Map in tmap. 
+```{r}
+
+#---------------------------------------
+# Make interactive map with tmap
+#---------------------------------------
+
+tmap_mode("view")
+
+tm_basemap("Stamen.TerrainBackground") +
+tm_shape(oil_spills) +
+  tm_dots(col = "red", legend.show = FALSE) +
+  tm_layout(title = "Oil spill locations and dates in California")
+
+```
+California oil spill locations shown in red, hover to show date.
+
+***
+
+### **Figure 2.** Chloreopleth Map in ggplot.
+
+```{r}
+
+#---------------------------------------
+# Make choropleth map with ggplot
+#---------------------------------------
+
+# Spatial join and calculate number of spills per county
+ca_spills <- st_join(ca_counties, oil_spills) %>% 
+  group_by(name) %>%
+  summarize(
+    counts = n()
+  )
+
+# Plot
+ggplot() +
+  geom_sf(data = ca_spills, aes(fill = counts)) +
+  labs(fill = "Number of oil spills") +
+  scale_fill_gradient(low = "#F9C48B", high = "#F25C54") +
+  labs(title = "Number of oil spills per county in California") +
+  theme_void()
+
+```
+<br>
+Counties with the highest number of oil spill incidents are shown in \n orange and counties with the lowest overall incidents are shown in pale yellow.
+
+***
+
+**Data source:** Title Oil Spill Incident Tracking [ds394]
+Publication date 2009-07-23. Edition 2008. Presentation formats digital map.
+FGDC geospatial presentation format vector digital data. Available at:

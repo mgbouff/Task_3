@@ -12,7 +12,7 @@ output:
     code_folding: hide
 ---
 
-## California Oil Spills
+## California Oil Spill Spatial Data Visualization
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(message = FALSE, warning = FALSE)
@@ -36,7 +36,7 @@ oil_spills <- read_sf(here("_posts", "2021-03-14-spatial-analysis", "oil_spill_s
 
 ```
 
-### **Figure 1.** Interactive Map in tmap. 
+### **Figure 1.** Interactive oil spill map in tmap. 
 ```{r}
 
 #---------------------------------------
@@ -55,7 +55,7 @@ California oil spill locations shown in red, hover to show date.
 
 ***
 
-### **Figure 2.** Chloreopleth Map in ggplot.
+### **Figure 2.** Chloreopleth Map of oil spills by county in ggplot.
 
 ```{r}
 

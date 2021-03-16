@@ -1,36 +1,99 @@
 ---
-title: "Master's Group Project"
-description: |
-  As part of the Master of Environmental Science and Management (MESM) Program, all students undertake a thesis-equivalent master's group research project. These are year-long projects in which small groups of students conduct focused, interdisciplinary research on the scientific, management, and policy dimensions of a specific environmental issue. 
-  
-  I wrote and proposed this project to support the work of Osa Conservation's work in the Talamanca-Osa region of Costa Rica and I served as project manager while completing this project with four other group members, Lauren Manzo, Cameryn Brock, Julia Dagum, and Bret Folger.
-  
+title: "About Me"
+
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
 library(tidyverse)
-
 ```
 
-## Wildlife-Friendly Farming & Crop Resilience: Economic & Geospatial Analysis of Sustainable Farming in Southern Costa Rica {.tabset}
+I was born in Washington DC but grew up mostly in Vermont where I spent as much time as possible outdoors. My family had always loved camping, hiking, and skiing. In high school I was on the nordic ski team, played field hockey, and ran long distance on the cross-country and track teams.
 
-AmistOsa Ag is working to protect biodiversity in southern Costa Rica by researching how farmers can benefit economically from wildlife-friendly practices. Many wildlife species in the Talamanca-Osa region are threatened by habitat fragmentation from agriculture and by a changing climate. These threats limit their ability to move throughout the region outside of its three protected parks. 
+```{r, out.width='70%', fig.show='hold', fig.align='center'}
+knitr::include_graphics('vt_ski.jpg')
 
-![The Talamanca-Osa Region in Southern Costa Rica. Art Credit: Cameryn Brock](study_area.jpg)
+# 'vt_btv.jpg', 'vt_xc.JPG', 
+```
 
-### Project Background
+<center>
 
-In the Talamanca-Osa region of southern Costa Rica, land development for agriculture, urban areas, and roads has fragmented natural habitats. Ensuring connectivity between these fragmented habitats is important to allow species movement, which can be critical for maintaining viable populations. The ability to move between protected areas allows for increased gene flow and range shifts in response to climate change, both of which are necessary for species’ long-term survival.
+ <font size="2"> *Golden Hour at Bolton Valley Ski Resort in Vermont.* </font> 
+ 
+ </center>
 
-![Photo Credit: National Geographic](rainforest.jpg)
+In 2017 graduated from Villanova University where I had studied science communication. My undergraduate journey took me from my classes, to teaching in underserved communities in Philadelphia, to writing for local environmental publication [Green Philly](https://www.thegreencities.com/author/marie/), to my study abroad studying sustainable development in Copenhagen, Denmark. This education broadened my world and taught me so much about environmental science and writing, but perhaps more importantly, it taught me about other perspectives, the importance of inclusion, justice, and servant leadership.
 
-The newly established Amistosa Biological Corridor in the Talamanca-Osa region provides an important pathway to maintaining biodiversity. This region is significant because it spans areas of high biodiversity and varying topography, including the Corcovado National Park on the Osa Peninsula and La Amistad International Peace Park in the Talamanca Mountains. Increased connectivity within the Talamanca-Osa region will allow species to shift to higher elevations to accommodate warming temperatures, supporting their survival in the face of climate change. 
+```{r, out.width='70%', fig.align='center'}
+knitr::include_graphics('nova.jpg')
+```
+<center>
 
-The Talamanca-Osa region includes a large amount of agricultural land between the Osa Peninsula and the Talamanca Mountains. Local grassroots organization, Osa Conservation, is dedicated to conserving the area’s unique biodiversity and works with farmers in the area to support wildlife-friendly farming. Techniques such as integrating agroforestry practices allow species to move through farmlands and improve connectivity in the corridor. 
-Engaging local farmers is critical in achieving a truly sustainable, functioning corridor, but participation must be economically viable. 
+ <font size="2"> *The iconic Villanova Church.* </font> 
+ 
+ </center>
+ 
+After college, I got to work in outdoor and environmental education. I headed downt o Front Royal, Virginia to work at the [Smithsonian Conservation Biological Institute](https://nationalzoo.si.edu/conservation) (possibly the coolest place in the world) where I developed curriculum and taught high school students and led them on hikes in Shenandoah National Park.
 
-![Osa Conservation Logo](Osa.png)
+```{r, out.width='70%', fig.align='center'}
+knitr::include_graphics('va_staff.JPG')
 
-This project employs economic and spatial analysis to support Osa Conservation’s work and provide farmers with the necessary information to implement sustainable farming practices in a manner that is beneficial to them and the local wildlife. An economic analysis will explore the economic costs and benefits to the farmer of attaining eco-certifications that promote wildlife-friendly farming. A spatial analysis will project suitability for staple crops given the anticipated impacts of climate change. Farmers can use this information to make informed decisions in their current management practices and future planning. An additional spatial analysis will determine areas of highest importance for conservation efforts, including increasing naturalness with wildlife-friendly farming techniques. Ultimately, this project will contribute to Osa Conservation’s aim to conserve Costa Rica’s outstanding biodiversity while enhancing the community’s economic opportunities. 
+# , 'va_staff.JPG', 'va_meadow.JPG', 'va_scbi.jpg'
+```
+<center>
+
+ <font size="2"> *Residential Outoor Educator team Summer 2017.* </font> 
+ 
+ </center>
+ 
+
+I then headed continued my journey south down the East Coast to Athens, Georgia where I worked for NASA DEVELOP on the [Georgia Energy II](https://develop.larc.nasa.gov/2017/fall/GeorgiaEnergyII.html) project and the [Osa Peninsula Water Resources Project](https://develop.larc.nasa.gov/2018/spring/OsaPeninsulaWater.html).
+
+```{r, out.width='70%', fig.align='center'}
+knitr::include_graphics('ga_team.JPG')
+```
+<center>
+
+ <font size="2"> *Georgia Energy II team Fall 2017.* </font> 
+ 
+ </center>
+
+Then I returned to outdoor education and moved out west to the incredible Summit County Colorado, where I worked at the Keystone Science school leading backpacking trips for kids ages 8 to 17.
+
+```{r, out.width='70%', fig.align='center'}
+knitr::include_graphics('co_hike.jpg')
+
+# 'co_hike.jpg', 'co_quandary.jpg', 'co_backpack.JPG'
+```
+
+<center>
+
+ <font size="2"> *One of my groups hiking Ptarmigan Peak Summer 2018.* </font> 
+ 
+ </center>
+
+It would have been tempting to stay up there in the mountains but then I recieved an amazing offer to become the next Center Lead of NASA DEVELOP's Georgia node. So I returned to Athens where I managed all the Georgia projects and teams, wrote research proposals for more projects, (including one one on [maple production in Vermont](https://develop.larc.nasa.gov/2019/fall/NorthernForestFoodAgII.html)) got to attend a NASA leadership conference at Langley, and explored the state from the North Georgia Mountains to the lovely city of Savannah.
+
+```{r, out.width='70%', fig.align='center'}
+knitr::include_graphics('langley.jpg')
+
+# 'NASA_globe.jpg', 'langley.jpg', 'savannah.jpg'
+```
+
+<center>
+
+ <font size="2"> *Me at the NASA Langley Research Center.* </font> 
+ 
+ </center>
+
+I always knew that I wanted to return to school for my master's degree and so in 2019 I began my grad school journey at the University of California's Bren School of Environmental Science & Management. Here I have had such wonderful opportunities to learn so many new skills and dive deeper into my interests in spatial anaylsis, landscape ecology, and science communication. I was able to propose a group project working on research in the Talamanca-Osa region of Costa Rica with the grassroots non-profit Osa Conservation that I had worked with on NASA DEVELOP projects. Check out my Master's project tab to learn more about that research!
+
+```{r, out.width='70%', fig.align='center'}
+knitr::include_graphics('ucsb.jpg')
+```
+<center>
+
+ <font size="2"> *The view of UCSB campus from my office Fall 2019.* </font> 
+ 
+ </center>

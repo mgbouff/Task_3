@@ -7,8 +7,10 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "Master's Project"
+    - text: "About Me"
       href: about.html
+    - text: "Master's Project"
+      href: amistosa.html
     - text: "CV"
       href: CV.html
     - text: "Projects"

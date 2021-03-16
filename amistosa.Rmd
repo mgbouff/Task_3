@@ -1,0 +1,36 @@
+---
+title: "Master's Group Project"
+description: |
+  As part of the Master of Environmental Science and Management (MESM) Program, all students undertake a thesis-equivalent master's group research project. These are year-long projects in which small groups of students conduct focused, interdisciplinary research on the scientific, management, and policy dimensions of a specific environmental issue. 
+  
+  I wrote and proposed this project to support the work of Osa Conservation's work in the Talamanca-Osa region of Costa Rica and I served as project manager while completing this project with four other group members, Lauren Manzo, Cameryn Brock, Julia Dagum, and Bret Folger.
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(tidyverse)
+
+```
+
+## Wildlife-Friendly Farming & Crop Resilience: Economic & Geospatial Analysis of Sustainable Farming in Southern Costa Rica {.tabset}
+
+AmistOsa Ag is working to protect biodiversity in southern Costa Rica by researching how farmers can benefit economically from wildlife-friendly practices. Many wildlife species in the Talamanca-Osa region are threatened by habitat fragmentation from agriculture and by a changing climate. These threats limit their ability to move throughout the region outside of its three protected parks. 
+
+![The Talamanca-Osa Region in Southern Costa Rica. Art Credit: Cameryn Brock](study_area.jpg)
+
+### Project Background
+
+In the Talamanca-Osa region of southern Costa Rica, land development for agriculture, urban areas, and roads has fragmented natural habitats. Ensuring connectivity between these fragmented habitats is important to allow species movement, which can be critical for maintaining viable populations. The ability to move between protected areas allows for increased gene flow and range shifts in response to climate change, both of which are necessary for species’ long-term survival.
+
+![Photo Credit: National Geographic](rainforest.jpg)
+
+The newly established Amistosa Biological Corridor in the Talamanca-Osa region provides an important pathway to maintaining biodiversity. This region is significant because it spans areas of high biodiversity and varying topography, including the Corcovado National Park on the Osa Peninsula and La Amistad International Peace Park in the Talamanca Mountains. Increased connectivity within the Talamanca-Osa region will allow species to shift to higher elevations to accommodate warming temperatures, supporting their survival in the face of climate change. 
+
+The Talamanca-Osa region includes a large amount of agricultural land between the Osa Peninsula and the Talamanca Mountains. Local grassroots organization, Osa Conservation, is dedicated to conserving the area’s unique biodiversity and works with farmers in the area to support wildlife-friendly farming. Techniques such as integrating agroforestry practices allow species to move through farmlands and improve connectivity in the corridor. 
+Engaging local farmers is critical in achieving a truly sustainable, functioning corridor, but participation must be economically viable. 
+
+![Osa Conservation Logo](Osa.png)
+
+This project employs economic and spatial analysis to support Osa Conservation’s work and provide farmers with the necessary information to implement sustainable farming practices in a manner that is beneficial to them and the local wildlife. An economic analysis will explore the economic costs and benefits to the farmer of attaining eco-certifications that promote wildlife-friendly farming. A spatial analysis will project suitability for staple crops given the anticipated impacts of climate change. Farmers can use this information to make informed decisions in their current management practices and future planning. An additional spatial analysis will determine areas of highest importance for conservation efforts, including increasing naturalness with wildlife-friendly farming techniques. Ultimately, this project will contribute to Osa Conservation’s aim to conserve Costa Rica’s outstanding biodiversity while enhancing the community’s economic opportunities. 

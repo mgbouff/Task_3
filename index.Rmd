@@ -13,6 +13,6 @@ output:
 site: distill::distill_website
 ---
  
-Hello! I'm Marie and I am a master's student at Bren School of Environmental Science & Management - University of California, Santa Barbara where I am specializing in conservation planning with a focus in environmental communication. I am interested in addressing environmental issues through the application of geospatial research, policy, and community engagement.
+Hello! I'm Marie and I am a geospatial analyst with a passion for conservation, environmental justice, and science communication. 
 
 Outside of work I enjoy seeing all I can of the world, hiking, camping, backpacking, every animal ever, and creating digital art. Welcome to my website!

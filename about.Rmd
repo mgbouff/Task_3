@@ -87,7 +87,7 @@ knitr::include_graphics('langley.jpg')
  
  </center>
 
-I always knew that I wanted to return to school for my master's degree and so in 2019 I began my grad school journey at the University of California's Bren School of Environmental Science & Management. Here I have had such wonderful opportunities to learn so many new skills and dive deeper into my interests in spatial anaylsis, landscape ecology, and science communication. I was able to propose a group project working on research in the Talamanca-Osa region of Costa Rica with the grassroots non-profit Osa Conservation that I had worked with on NASA DEVELOP projects. Check out my Master's project tab to learn more about that research!
+I always knew that I wanted to return to school for my master's degree and so in 2019 I began my grad school journey at the University of California's Bren School of Environmental Science & Management. Here I have had such wonderful opportunities to learn so many new skills and dive deeper into my interests in spatial analysis, landscape ecology, and science communication. I was able to propose a group project working on research in the Talamanca-Osa region of Costa Rica with the grassroots non-profit Osa Conservation that I had worked with on NASA DEVELOP projects. Check out my Master's project tab to learn more about that research!
 
 ```{r, out.width='70%', fig.align='center'}
 knitr::include_graphics('ucsb.jpg')
